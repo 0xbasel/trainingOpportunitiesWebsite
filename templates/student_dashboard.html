@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ student.name }}</h1>
+        <h2>Recommended/Filtered Training Opportunities</h2>
+        <div class="posts">
+            {% for post in posts %}
+                <div class="post">
+                    <h2>{{ post.description }}</h2>
+                    <p>Location: {{ post.location }}</p>
+                    <p>Minimum GPA: {{ post.minimum_gpa }}</p>
+                    <a href="{{ post.apply_link }}" target="_blank">Apply Here</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Opportunities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Training Opportunities</h1>
+        <div class="buttons">
+            <a href="{{ url_for('register') }}" class="btn">Register</a>
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+        </div>
+        <div class="posts">
+            {% for post in posts %}
+                <div class="post">
+                    <h2>{{ post.description }}</h2>
+                    <p>Location: {{ post.location }}</p>
+                    <p>Minimum GPA: {{ post.minimum_gpa }}</p>
+                    <a href="{{ post.apply_link }}" target="_blank">Apply Here</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
